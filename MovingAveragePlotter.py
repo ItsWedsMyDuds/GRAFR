@@ -8,7 +8,7 @@ import numpy as np
 
 
 #mainDir = "C:\\Users\\reidn\\Desktop\\Coding\\Matplotlib\\test"
-os.chdir(mainDir)
+#os.chdir(mainDir)
 
 
 def movingAverage(csvName,movAvg = 20):
@@ -25,6 +25,8 @@ def movingAverage(csvName,movAvg = 20):
     count = 0
     tempSum = 0
     for value in csv:
+        #if value.index(csv)==0:
+            #continue
         tempSum = tempSum + value
         count += 1
         if count % movAvg == 0:

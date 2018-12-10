@@ -20,3 +20,7 @@
 - The program doesn't work with files that were pushed through labelimg (it changes the XML)
 - TestFiles5 = 20181112505
     - There are 2067 total files excluding data and emptyrgb.png
+    
+
+- Updated Confidence plotter to export a file confidences.csv which contains the non-redundant percentages 
+    of confidences which MovingAveragePlotter can use directly

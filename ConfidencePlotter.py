@@ -68,7 +68,7 @@ def get_confidence():
                     scorevalue = int(round(float(value.text)))
                     totalScore += scorevalue
                 totalScore = int(totalScore / int(len(score)))
-                scoreList.append(totalScore/100)
+                scoreList.append(totalScore)
                 scoreDict[fileName] = totalScore
                 totalScore = 0
     os.chdir(fileDir)
@@ -120,10 +120,12 @@ def reduce_time_redundancy():
     #createTimeList
     d = {}
     newDict = {}
+    confidences =[]
     for a, b in zip(createTimeList, scoreList):
         d.setdefault(a,[]).append(b)
     for key in d:
         newDict[key] = sum(d[key])/len(d[key])
+        confidences.append(newDict[key])
     with open("sa_sort_confidences.csv", 'w') as f:
         fieldNames = ['Time', 'AvgConfidence']
         writer = csv.DictWriter(f, fieldnames=fieldNames, lineterminator='\n')
@@ -131,7 +133,8 @@ def reduce_time_redundancy():
         data = [dict(zip(fieldNames, [k, v])) for k, v in newDict.items()]
         writer.writerows(data)
         f.close()
-
+    os.chdir(fileDir)
+    np.savetxt('confidences.csv',confidences,delimiter=',', fmt='%s')
 
 ##DIRECTORIES
 
