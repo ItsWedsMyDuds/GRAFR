@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotation>
+    <folder>201811121505_00199</folder>
+    <filename>201811121505_00199.png</filename>
+    <path>//mussbfileserver/$Data_Exchange/Reid/Annotations/201811121505/all_png_5/201811121505_00199.png</path>
+    <source>
+        <database>Unknown</database>
+    </source>
+    <size>
+        <width>160</width>
+        <height>100</height>
+        <depth>1</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>cell</name>
+        <score>68.4723</score>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>43</xmin>
+            <ymin>14</ymin>
+            <xmax>63</xmax>
+            <ymax>33</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>cell</name>
+        <score>13.824</score>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>30</xmin>
+            <ymin>15</ymin>
+            <xmax>51</xmax>
+            <ymax>33</ymax>
+        </bndbox>
+    </object>
+</annotation>

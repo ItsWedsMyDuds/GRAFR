@@ -15,3 +15,8 @@
     - 1834 images 
         - 3522 total items (excluding data):
         - 3522 - 1834 = 1688 xmls, 146 unannotated images
+        
+        
+- The program doesn't work with files that were pushed through labelimg (it changes the XML)
+- TestFiles5 = 20181112505
+    - There are 2067 total files excluding data and emptyrgb.png
