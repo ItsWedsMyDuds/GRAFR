@@ -1,0 +1,12 @@
+Detection threshold 15%
+
+15000	images
+1083	0 cells
+13326	1 cell
+591	multiple cells
+3	max cells in image
+14530	total detected cells
+67	avg score
+30	min detection time (ms)
+192	max detection time (ms)
+35	avg detection time (ms)

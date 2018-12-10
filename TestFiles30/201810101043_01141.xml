@@ -1,0 +1,26 @@
+<annotation verified="yes">
+	<folder>1-Fixed</folder>
+	<filename>201810101043_01141.png</filename>
+	<path>C:\Users\reidn\Desktop\Manual Annot\1-Fixed\201810101043_01141.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>160</width>
+		<height>100</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cell</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>70</xmin>
+			<ymin>18</ymin>
+			<xmax>87</xmax>
+			<ymax>34</ymax>
+		</bndbox>
+	</object>
+</annotation>

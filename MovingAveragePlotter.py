@@ -7,7 +7,7 @@ import os
 import numpy as np
 
 
-mainDir = "C:\\Users\\reidn\\Desktop\\Coding\\Matplotlib\\test"
+#mainDir = "C:\\Users\\reidn\\Desktop\\Coding\\Matplotlib\\test"
 os.chdir(mainDir)
 
 

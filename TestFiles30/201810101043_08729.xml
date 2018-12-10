@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotation>
+    <folder>201810101043_08729</folder>
+    <filename>201810101043_08729.png</filename>
+    <path>//mussbfileserver/Miltenyi/Projects/Self-Aware_Camera_Project/Image_sets/AnnotationNew/1-Fixed/201810101043_08729.png</path>
+    <source>
+        <database>Unknown</database>
+    </source>
+    <size>
+        <width>160</width>
+        <height>100</height>
+        <depth>1</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>cell</name>
+        <score>71.2683</score>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>49</xmin>
+            <ymin>14</ymin>
+            <xmax>69</xmax>
+            <ymax>32</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>cell</name>
+        <score>61.5096</score>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>74</xmin>
+            <ymin>16</ymin>
+            <xmax>90</xmax>
+            <ymax>34</ymax>
+        </bndbox>
+    </object>
+</annotation>
