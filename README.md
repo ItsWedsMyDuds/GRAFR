@@ -5,6 +5,13 @@
 
 ###*Notes*
 
+
+12.11.2018 5PM
+- Can't do git push anymore but can directly upload
+- Uploaded CellPlotterGUI v1
+- Uploaded LocusPlotter
+
+
 12.9.2018 3:54 PM
 - TestFiles130 = 1Fixed-NetworkAnnotation
     - Removed large sample from the set so that it's more portable
