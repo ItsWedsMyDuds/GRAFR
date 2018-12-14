@@ -5,6 +5,10 @@
 
 ###*Notes*
 
+12.14.2018 
+- Uploaded CellPlotterHists
+    - Cell plotter with histograms
+    
 
 12.11.2018 5PM
 - Can't do git push anymore but can directly upload
