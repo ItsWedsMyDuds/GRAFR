@@ -1,0 +1,104 @@
+#12.19.2018 737 AM version
+
+import numpy as np
+import pandas as pd
+#import xlrd
+import os
+import statistics
+from statistics import stdev
+from fractions import Fraction as fr
+import matplotlib
+from matplotlib import pyplot as plt
+from matplotlib.figure import Figure
+print("Plotting.....",end="",flush=True)
+
+#file = "C:\\Users\\reidn\\Desktop\\cellStats\\cell_details.xlsx"
+#file = "D:\\Processing\\Ozone\\201812131522\\cell\\cell_details.xlsx"
+file = "D:\\Processing\\OldVsNewModel\\201812171151\\newPNGModel5"
+df = pd.read_excel(file)
+#print(df.columns)
+xVals = df['X Pos'].values
+yVals = df['Y Pos'].values
+tempScores = df['Score'].values
+scores = []
+count = 0
+xlist = []
+xStds = []
+xPos = []
+
+ylist = []
+yStds = []
+yPos = []
+
+cellNum = 200
+
+for val in xVals:
+    count+=1
+    if val == "-":
+        continue
+    if count%cellNum == 0:
+        xStds.append(statistics.stdev(xlist))
+        xPos.append(statistics.mean(xlist))
+        #print(statistics.stdev(xlist))
+        #print(count)
+
+        xlist = []
+    #count +=1
+    xlist.append(int(val))
+count = 0
+
+for val in yVals:
+    count+=1
+    if val == "-":
+        continue
+    if count%cellNum == 0:
+        yStds.append(statistics.stdev(ylist))
+        yPos.append(statistics.mean(ylist))
+        #print(statistics.stdev(ylist))
+        #print(count)
+        ylist = []
+    ylist.append(int(val))
+count = 0
+
+scoreList = []
+for val in tempScores:
+    count+=1
+    if val == 0:
+        continue
+    if count%cellNum ==0:
+        scores.append(statistics.mean(scoreList))
+        scoreList = []
+    scoreList.append(int(val))
+print("DONE")
+
+# fig = Figure(figsize=(5, 4), dpi=100)
+# t = np.arange(0, 3, .01)
+# fig.add_subplot(111).plot(t, 2 * np.sin(2 * np.pi * t))
+time = np.arange(1,len(yStds)+1,1)
+plt.figure(1)
+plt.subplot(311)
+plt.plot(time,yStds, label="Y Stdev")
+plt.plot(time,xStds, label="X Stdev")
+plt.legend()
+plt.ylabel('Position Stdevs')
+plt.subplot(312)
+
+plt.plot(time,yPos, label ="Avg Y ("+str(cellNum)+")")
+plt.plot(time,xPos, label="Avg X ("+str(cellNum)+")")
+plt.ylabel('Avg Cell Position')
+plt.legend()
+
+plt.subplot(313)
+plt.plot(time,scores)
+plt.ylabel('Avg Confidence ('+str(cellNum)+')')
+#plt.hist2d(xPos,yPos)
+#plt.ylim(100,0)
+#plt.xlim(0,160)
+#plt.figure(1, figsize=(10,10))
+plt.show()
+
+# plt.hist(xlist)
+# matplotlib.pyplot.show()
+#
+# matplotlib.pyplot.hist(ylist, orientation=u'horizontal')
+# matplotlib.pyplot.show()
