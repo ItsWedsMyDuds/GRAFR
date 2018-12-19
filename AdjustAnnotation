@@ -1,0 +1,94 @@
+#Layout:
+#  - INPUT: Cell_details.xlsx (5%)
+# 	○ Filter through scores that are equal to or above confidenceLevel
+# 	○ Save the indexes of scores from cell_details that are <= confidenceLevel (relevantIndexes)
+# 	○ Save relevant scores relevantScores
+#   ○ Parse through x and y positions from cell_details based on index
+#  - OUTPUT: file with scores at x confidence level
+
+import numpy as np
+import pandas as pd
+#import xlrd
+import os
+import statistics
+from statistics import stdev
+from fractions import Fraction as fr
+import matplotlib
+from matplotlib import pyplot as plt
+from matplotlib.figure import Figure
+from time import gmtime, strftime
+shortTime = str(strftime("%M%S"))
+
+#print("Input file path")
+file = "D:\\Processing\\Ozone\\201812131522\\cell\\cell_details.xlsx"
+#file = input()
+df = pd.read_excel(file)
+
+#print("Input confidence level")
+#confidenceLevel = input()
+print("Processing.....",end="",flush=True)
+
+#file = "C:\\Users\\reidn\\Desktop\\cellStats\\cell_details.xlsx"
+
+dir = os.path.dirname(file)
+os.chdir(dir)
+
+
+confidenceLevel = 5
+
+cellNum = 200
+
+xVals = df['X Pos'].values
+yVals = df['Y Pos'].values
+fileNames = df['Image Name'].values
+cellsDetected = df['Cells Detected'].values
+
+tempScores = df['Score'].values
+tempScores = tempScores.tolist()
+
+relevantIndexes = []
+relevantScores = []
+scores = []
+
+
+xPos = []
+yPos = []
+relCellsDetect = []
+relFileNames = []
+
+#Filtering based on score
+for val in tempScores:
+    if val >= confidenceLevel:
+        relevantIndexes.append(int(tempScores.index(val)))
+        relevantScores.append(val)
+    else:
+        continue
+
+#Make lists of relevant positions
+for relIndex in relevantIndexes:
+    xPos.append(xVals[relIndex])
+    yPos.append(yVals[relIndex])
+    relCellsDetect.append(cellsDetected[relIndex])
+    relFileNames.append(fileNames[relIndex])
+
+#Converting lists to Panda dataframe
+newDF = pd.DataFrame(
+    {
+        'Image Name':relFileNames,
+        'Score':relevantScores,
+        'X Pos':xPos,
+        'Y Pos':yPos,
+        'Cells Detected':relCellsDetect
+    })
+
+#Writing dataframe to excel
+os.chdir("C:\\Users\\reidn\\Desktop")
+name = "cell_details"+str(confidenceLevel)+shortTime+".xlsx"
+print(newDF)
+
+writer = pd.ExcelWriter('outputto.xlsx')
+newDF.to_excel(writer,'cell_details')
+writer.save()
+
+print("DONE")
+print(dir+"\\"+name)
